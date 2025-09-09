@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Aura Builder</title>
+    <style>
+        body { font-family: sans-serif; }
+        #test-results { list-style-type: none; padding: 0; }
+        .pass { color: green; }
+        .fail { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Aura Builder Test Suite</h1>
+    <ul id="test-results"></ul>
+
+    <!-- The application's scene container, hidden for testing -->
+    <div id="scene-container" style="display: none;"></div>
+
+    <!-- The application's UI elements, hidden for testing -->
+    <div id="controls" style="display: none;">
+        <button id="reset-button">Reset</button>
+        <button id="save-button">Save State</button>
+        <button id="load-button">Load State</button>
+    </div>
+    <div id="data-display" style="display: none;">
+        <p>Selected Cells: <span id="cell-count">0</span></p>
+    </div>
+
+    <!-- Import map for three.js, same as in index.html -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+            }
+        }
+    </script>
+
+    <!-- The application script -->
+    <script type="module" src="script.js"></script>
+
+    <!-- The test script -->
+    <script type="module" src="test.js"></script>
+</body>
+</html>
