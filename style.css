@@ -1,3 +1,19 @@
+body {
+    background-color: #0a0b0f;
+    color: #e0e1e6;
+    font-family: sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+#scene-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 #controls {
     position: fixed;
     bottom: 20px;
@@ -18,4 +34,20 @@
     background: rgba(26, 28, 35, 0.8);
     padding: 10px 15px;
     border-radius: 8px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+button, select {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: #00f6ff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
 }
