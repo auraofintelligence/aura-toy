@@ -13,13 +13,13 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 
 // --- DATA GRID SETUP ---
-const ROWS = 12;
-const COLS = 24;
-const CELL_SIZE = 20; // Size of each cell in pixels for the texture
+export const ROWS = 12;
+export const COLS = 24;
+export const CELL_SIZE = 20; // Size of each cell in pixels for the texture
 
 // This Set will store the coordinates of selected cells, e.g., "3-5"
 // This is the beginning of your vector data structure.
-let selectedCells = new Set();
+export let selectedCells = new Set();
 
 // --- THE OBJECT (THE DATA PLANE) ---
 
@@ -36,7 +36,7 @@ scene.add(plane);
 // --- TEXTURE FUNCTION (DRAWS OUR DATA) ---
 
 // This function draws the grid onto a 2D canvas, which we then use as a "skin"
-function createGridTexture() {
+export function createGridTexture() {
     const canvas = document.createElement('canvas');
     canvas.width = COLS * CELL_SIZE;
     canvas.height = ROWS * CELL_SIZE;
@@ -50,7 +50,8 @@ function createGridTexture() {
     context.fillStyle = '#ef4444'; // The red color from your design
     selectedCells.forEach(cellKey => {
         const [x, y] = cellKey.split('-').map(Number);
-        context.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        // Correctly map the y-coordinate from bottom-up (logic) to top-down (canvas)
+        context.fillRect(x * CELL_SIZE, (ROWS - 1 - y) * CELL_SIZE, CELL_SIZE, CELL_SIZE);
     });
 
     // Draw grid lines
